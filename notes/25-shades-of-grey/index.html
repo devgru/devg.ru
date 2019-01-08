@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head lang="ru">
+  <meta charset="utf-8">
+  <title>25 оттенков серого</title>
+  <link rel="stylesheet" href="/bower_components/tufte-css/tufte.css">
+  <link rel="stylesheet" href="/files/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffff8" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=GvJamQA1vw">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png?v=GvJamQA1vw" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png?v=GvJamQA1vw" sizes="16x16">
+  <link rel="manifest" href="/manifest.json?v=GvJamQA1vw">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=GvJamQA1vw" color="#111111">
+  <link rel="shortcut icon" href="/favicon.ico?v=GvJamQA1vw">
+  <meta name="apple-mobile-web-app-title" content="devg.ru">
+  <meta name="application-name" content="devg.ru">
+</head>
+<body>
+<article>
+  <h1>25 оттенков серого</h1>
+  <p class="subtitle">одна из <a href="/notes">заметок Димы Семьюшкина</a></p>
+  <section>
+    <p>Илья Бирман <a href="http://ilyabirman.ru/meanwhile/all/thinner-than-a-pixel/">пишет</a>:</p>
+<blockquote>
+<p>
+Толщина линии обеспечивается изменением опасности, но говорить «сделай линейку прозрачнее» — неверно. Смысл именно в том, чтобы сделать её тоньше. То, что на современном уровне развития дисплеев для этого приходится прозрачнить — второстепенно.
+</p>
+</blockquote>
+
+<p>Это неправда. Дело не в дисплеях, проблема в <abbr>HTML</abbr>. Все размеры округляются до пикселя.</p>
+<p>К счастью, в <abbr>SVG</abbr> толщина линии не ограничена целыми пикселями и может быть дробной. Тонкие и полупрозрачные линии заметно отличаются. Посмотрим на примере.</p>
+<p>Слева направа уменьшим толщину от 1 до 0.2, сверху вниз — увеличим прозрачность.</p>
+<script src="https://d3js.org/d3.v3.min.js" type="text/javascript"></script>
+<style>
+path, polygon, circle, rect {
+  fill: none;
+  stroke: #111;
+
+  vector-effect: non-scaling-stroke;
+}
+</style>
+
+<svg></svg>
+
+<script>
+
+function draw25Shades() {
+  var svg = d3.select('svg');
+  var parentWidth = d3.select(svg.node().parentNode).style('width').slice(0, -2);
+  svg
+    .attr('width', parentWidth * .9)
+    .attr('height', parentWidth * .26);
+  scale = parentWidth / 1650
+
+  var array = []
+  d3.range(1, 6).forEach(y => {
+    d3.range(1, 6).forEach(x => {
+      array.push({x, y})
+    })
+  });
+
+  var gs = svg.selectAll('g')
+    .data(array);
+
+  var newGs = gs
+    .enter()
+    .append('g');
+
+  gs
+    .exit()
+    .remove();
+
+  gs
+    .attr('opacity', ({x, y}) => (12 - y * 2) / 10)
+    .attr('stroke-width', ({x, y}) => x / 5)
+    .attr('transform', ({x, y}) => `scale(${scale})translate(${(5 - x) * 183}, ${(y - 1) * 90})`);
+
+  newGs
+    .append('path')
+    .attr('d', 'M10.09375,20.6445313 C16.9872974,20.6445313 17.9726615,9.49475118 45.5585938,10.5703125 C58.290043,11.0667052 59.1457591,28.0871073 69.5273438,33.4570313 C92.0820321,45.1235509 114.88351,25.8913852 134.488281,16.0859375');
+  newGs
+    .append('polygon')
+    .attr('points', '92 5 103 24 81 24');
+  newGs
+    .append('circle')
+    .attr('cx', 31.5)
+    .attr('cy', 36.5)
+    .attr('r', 12.5);
+  newGs
+    .append('rect')
+    .attr('x', 2)
+    .attr('y', 2)
+    .attr('width', 140)
+    .attr('height', 50)
+}
+
+d3.select(window).on('resize', draw25Shades)
+draw25Shades()
+
+</script>
+
+<p>Отличие заметно на ретине. Тонкие линии выглядят чётче, чем полупрозрачные.
+Это особенно заметно на прямых линиях, наклонные и кривые будут почти идентичны.</p>
+<p>Используйте <abbr>SVG</abbr> для графических элементов.
+Меняйте толщину. Прозрачность нужна для другого.</p>
+    <footer>2015&nbsp;&nbsp;&nbsp;SVG&nbsp;&nbsp;&nbsp;веб</footer>
+  </section>
+  <br>
+  <br>
+  © 2012&thinsp;—&thinsp;2018
+  <br>
+  <br>
+  Сайт собирает <a href="http://wintersmith.io/">Wintersmith</a>
+</article>
+<script src="https://mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
+<script type="text/javascript">try {
+    var yaCounter32782980 = new Ya.Metrika({
+        id: 32782980,
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+    });
+} catch (e) {
+}</script>
+</body>
+</html>

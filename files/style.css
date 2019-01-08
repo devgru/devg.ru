@@ -1,0 +1,30 @@
+abbr {
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
+  margin-right: -0.1em;
+}
+
+li {
+  line-height: 2rem;
+}
+
+section {
+  clear: both;
+}
+
+.cf55 {
+  color: #f55;
+}
+.cff9 {
+  color: #ff9;
+}
+.c5ff {
+  color: #5ff;
+}
+.c95f {
+  color: #95f;
+}
+.c595 {
+  color: #595;
+}
+

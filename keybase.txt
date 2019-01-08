@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/devgru
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://devg.ru
+  * I am devgru (https://keybase.io/devgru) on keybase.
+  * I have a public key with fingerprint CAAA 4087 855D AB51 327E  9372 9804 3402 64BA EDD9
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120dd478b7626e8ea7d6e56f23070b51fcff2d8876e6552c9501448258a3a9908ae0a",
+      "fingerprint": "caaa4087855dab51327e93729804340264baedd9",
+      "host": "keybase.io",
+      "key_id": "9804340264baedd9",
+      "kid": "01015302abcf9b688335c53435c4372a75710cd12b7fb9f004fd0dfe801aafa962f60a",
+      "uid": "04be3d4d86047854052fbf2bcd7bdf19",
+      "username": "devgru"
+    },
+    "service": {
+      "hostname": "devg.ru",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1521718731,
+  "expire_in": 157680000,
+  "prev": "18bb50588337ee6a3001de6fffc50cfacc55f5d3ae4a771b163f952c85351d66",
+  "seqno": 7,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMNtAnicbVJtTBRHGL7DoxRaBAmhYGquXaxWQ2T2Y3b3jgqJVYiREjBA+OwxuzML
+W+EO7g4EjRCwDYWQYOWjAtFK27Q1pFgkWINJCeWr7akx9SLSQotKWlAR7WmDQLF7
+tCb90fkxk3nneZ73ed95hwPX6QL0JwycD+6fn9C7Bo+V6rJ6W1yHKcmGKyjzYeoA
+WTtIISYOp+WAiikzBWgGYMwJoiTwDE9EggTME8grDAsEIEFakRWFwaIo8ISHkJFN
+ENAcJzJQRCwymYCICEBUFKWo1nxiL7arVqcmKyOEOCAKIoQYaSosIxATKzAmEXAs
+BxiekxDB2KQRC2wOL0MzJyEH2aHatJh2sazZ+x/8M9+AhixgkCQrJokXRZaFMmQ5
+bee0PEiAAg1kTDOSoEgmBQBOwQArRAQ0Qgoy8YzCr/ku/UeOkwiLOSzyQOsF5ABk
+FElhJBkLElZob95SB7FbURHR0JiU5dtLqSNRlBYrU2Xibau3jv+879AAUVSx3ea0
+ybZCLVjgdBY7zF6Ss6LYizpIJMu/fIukWrHWQI1RRuwO1WalzLSGlJ2qV5CGDC3Q
+osDSURQpL1btxKJ6EVDgRaAtbx5SpknSoiRBAL3dEAjhEQsAjQmvKIoMgawgWYZQ
+gZhFhEOCQEs0zyom7VNFyEIa8zzlrajEaqPMgmYT5WuSDjXfipyldkId+XYwx6DT
+B+ie8/XxDpYuwD/42bjd2Bu0KsJXzcYv7mUMJDx5ryg0e6QvpLMlMJN6Wh1aUdvQ
++lCuGilvf7vBL6j5x6+LtrX/6ZpIrf78rKFxsHk/X/IrH+cx3zxUOR6/8kpklWFp
+avZp/e2Li9va96b3Ph/Xcar7xbvxqn0y0SW0t1kY9k11VgwO94Rn3Jn2ZH72w9ye
+4RB3SnxGoZnRR893jaedWKhbWthQN5mZnv96ydjjq6mdH/Lu3LyfRis2V/lUGYd3
+XszxYy6tjF0u2DQ1FR9z6oXK1vLdf9EJnvbfcrI6Kq43GdjYCwu7/SaG70ZcqZlT
+h861xDemLbo/7Wj8ai56/lpnrTuX8ze1jbH70vaFJs036Qsjdy1/847x3tbU2KOb
+F1teq7/088BE7p6ThtOV35/PSDOe6wclnqTutrd8W5sv+5o9YTfOvGwWZ/LWB9Mn
+V8uPNjjqUnbNukd0OVXp5oV+3+CA9Zm3Es9ExVYn9+RN+kxv1V9xxTxYTJ9bNUb+
+3vUSQAN3Hob4Fjy+nsJlf5BUPxbp+aSju2fobOJNV0TYUuvVvtRjt3NHPw5Mnoye
+3hLXlLX90KMs/0X7jLPv+K2NQjI/tqlxYTShbzxsy33wh7JuaObCg/3fjb+xImYn
+n4+p7cIpee8bQc2hDdfS8pfDayZGe7984uzm7v+SrNvodn502uo5+KhjueTdab+g
+npGIwpntx6dbdv4N44/Ddw==
+=XAoj
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/devgru
+
+==================================================================

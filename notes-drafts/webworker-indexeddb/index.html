@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head lang="ru">
+  <meta charset="utf-8">
+  <title>WebWorker и IndexedDB</title>
+  <link rel="stylesheet" href="/bower_components/tufte-css/tufte.css">
+  <link rel="stylesheet" href="/files/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffff8" />
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png?v=GvJamQA1vw">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png?v=GvJamQA1vw">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png?v=GvJamQA1vw" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png?v=GvJamQA1vw" sizes="16x16">
+  <link rel="manifest" href="/manifest.json?v=GvJamQA1vw">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=GvJamQA1vw" color="#111111">
+  <link rel="shortcut icon" href="/favicon.ico?v=GvJamQA1vw">
+  <meta name="apple-mobile-web-app-title" content="devg.ru">
+  <meta name="application-name" content="devg.ru">
+</head>
+<body>
+<article>
+  <h1>WebWorker и IndexedDB</h1>
+  <p class="subtitle">одна из <a href="/notes">заметок Димы Семьюшкина</a></p>
+  <section>
+    <h2 id="-">Храним гигабайты данных на клиенте</h2>
+<p>По работе появилась необходимость хранить куб данных прямо в браузере.</p>
+<p>Условия такие:</p>
+<ul>
+<li>есть база данных, которая хранит куб данных с такими измерениями:<ul>
+<li>идентификатор объекта;</li>
+<li>параметр;</li>
+<li>дата;</li>
+</ul>
+</li>
+<li>необходимо иметь возможность быстро получать объёмные срезы куба и осуществлять расчёты на основе полученных данных;</li>
+<li>есть сервер, он выдаёт двухмерные срезы по набору параметров и объектов за одну из дат;</li>
+<li>сервером занимается отдельная команда со своими приоритетами, модифицировать сервер, чтобы он сам выполнял расчёты невозможно;</li>
+<li>получать срезы <abbr>JIT</abbr> по сети слишком долго.</li>
+</ul>
+<p>Решение нашлось неожиданное: можно использовать <abbr>IndexedDB</abbr> и хранить целиком копию куба.</p>
+<p>Здесь есть нюансы:</p>
+<ul>
+<li>копия куба должна быть оптимизирована, избавлена от лишних параметров;</li>
+<li>браузеры по-разному работают с <abbr>IndexedDB</abbr>.</li>
+</ul>
+<h2 id="-indexeddb">Ограничения <abbr>IndexedDB</abbr></h2>
+<p>Проект, для которого мы разрабатывали описываемое хранилища используется только из браузеров, на движке Blink достаточно свежих версий. Это сняло головную боль по поводу совместимости — нам не нужно было поддерживать <abbr>IE</abbr>, Safari и Firefox и другие браузеры. Тем не менее, мы иногда использовали Firefox для отладки и я убедился, что <abbr>IndexedDB</abbr> нормально работает и в нём.</p>
+<p>При использовании <abbr>IndexedDB</abbr></p>
+    <footer>2017&nbsp;&nbsp;&nbsp;программирование&nbsp;&nbsp;&nbsp;веб-разработка</footer>
+  </section>
+  <br>
+  <br>
+  © 2012&thinsp;—&thinsp;2018
+  <br>
+  <br>
+  Сайт собирает <a href="http://wintersmith.io/">Wintersmith</a>
+</article>
+<script src="https://mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
+<script type="text/javascript">try {
+    var yaCounter32782980 = new Ya.Metrika({
+        id: 32782980,
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+    });
+} catch (e) {
+}</script>
+</body>
+</html>
